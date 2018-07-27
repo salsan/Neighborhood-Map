@@ -8,7 +8,6 @@ export class LocalMap extends Component {
     showingInfoWindow: false,
     activeMarker: {},
     selectedPlace: {},
-    iconPlace : ''
   };
 
   onMarkerClick = (props, marker, e) =>
