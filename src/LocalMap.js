@@ -8,14 +8,20 @@ export class LocalMap extends Component {
     showingInfoWindow: false,
     activeMarker: {},
     selectedPlace: {},
+    defaultIcon : '0089ff'
   };
 
   onMarkerClick = (props, marker, e) =>
-    this.setState({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true
-    });
+  {
+      this.setState({
+        selectedPlace: props,
+        activeMarker: marker,
+        showingInfoWindow: true,
+        defaultIcon: 'ff211c'
+      })
+
+
+  }
 
   onMapClicked = (props) => {
     if (this.state.showingInfoWindow) {
@@ -25,6 +31,18 @@ export class LocalMap extends Component {
       })
     }
   };
+
+  makeMarkerIcon = (markerColor) => {
+   var markerImage = new this.props.google.maps.MarkerImage(
+     'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
+     '|40|_|%E2%80%A2',
+     new this.props.google.maps.Size(21, 34),
+     new this.props.google.maps.Point(0, 0),
+     new this.props.google.maps.Point(10, 34),
+     new this.props.google.maps.Size(21,34));
+   return markerImage;
+ }
+
 
   render() {
 
@@ -190,6 +208,7 @@ export class LocalMap extends Component {
 ];
 
     return (
+
         <div>
           <Map
              google={this.props.google}
@@ -200,6 +219,7 @@ export class LocalMap extends Component {
              zoom={13}
              styles={styles}
              mapTypeControl={false}
+
             >
 
       {this.props.locations.map(location =>
@@ -208,8 +228,9 @@ export class LocalMap extends Component {
         key={location.title}
         title={location.title}
         position={location.location}
-        animation={this.props.google.maps.Animation.DROP}
-        />
+        animation={(this.props.google.maps.Animation.DROP) }
+        icon={ this.makeMarkerIcon(this.state.defaultIcon) }
+         />
       )}
 
         <InfoWindow
