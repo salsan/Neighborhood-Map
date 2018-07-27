@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import LocalMap from './LocalMap'
 import './App.css';
 
+
+
 class App extends Component {
+  state = {
+          locations : [
+           {title: 'Piazza Duomo', location: {lat: 37.502496, lng: 15.087076}},
+           {title: 'Stadio Angelo Massimino', location: {lat: 37.515807, lng: 15.071064}},
+           {title: 'Teatro Massimo Bellini', location: {lat: 37.504207, lng: 15.090006}},
+           {title: 'Aeroporto', location: {lat: 37.467305, lng: 15.065775}},
+           {title: 'ASD Scacchi Catania', location: {lat: 37.523458, lng: 15.067489}}
+         ]
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+       <LocalMap
+         locations={this.state.locations}
+         />
       </div>
     );
   }
