@@ -8,6 +8,7 @@ export class LocalMap extends Component {
     showingInfoWindow: false,
     activeMarker: {},
     selectedPlace: {},
+    iconPlace : ''
   };
 
   onMarkerClick = (props, marker, e) =>
@@ -27,6 +28,7 @@ export class LocalMap extends Component {
   };
 
   render() {
+
     const styles = [
   {
     "elementType": "geometry",
@@ -187,6 +189,7 @@ export class LocalMap extends Component {
     ]
   }
 ];
+
     return (
         <div>
           <Map
@@ -197,6 +200,7 @@ export class LocalMap extends Component {
              }}
              zoom={13}
              styles={styles}
+             mapTypeControl={false}
             >
 
       {this.props.locations.map(location =>
