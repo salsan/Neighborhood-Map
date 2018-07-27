@@ -1,9 +1,30 @@
 import React, { Component } from 'react';
-import { Map, Marker, GoogleApiWrapper} from 'google-maps-react';
+import { Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 
 
 export class LocalMap extends Component {
+  state = {
+    showingInfoWindow: false,
+    activeMarker: {},
+    selectedPlace: {},
+  };
+
+  onMarkerClick = (props, marker, e) =>
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
+
+  onMapClicked = (props) => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      })
+    }
+  };
 
   render() {
     return (
@@ -19,20 +40,23 @@ export class LocalMap extends Component {
 
       {this.props.locations.map(location =>
         <Marker
+        onClick={this.onMarkerClick}
         key={location.title}
         title={location.title}
         position={location.location}
         animation={this.props.google.maps.Animation.DROP}
         />
       )}
+
+        <InfoWindow
+             marker={this.state.activeMarker}
+             visible={this.state.showingInfoWindow}>
+               <div>
+                 <h1>{this.state.selectedPlace.title}</h1>
+               </div>
+         </InfoWindow>
      </Map>
         </div>
-
-
-
-
-
-
 
     );
   }
