@@ -8,7 +8,8 @@ export class LocalMap extends Component {
     showingInfoWindow: false,
     activeMarker: {},
     selectedPlace: {},
-    defaultIcon : '0089ff'
+    defaultIcon : '0089ff',
+    highlightedIcon : 'ff211c'
   };
 
   onMarkerClick = (props, marker, e) =>
@@ -17,10 +18,7 @@ export class LocalMap extends Component {
         selectedPlace: props,
         activeMarker: marker,
         showingInfoWindow: true,
-        defaultIcon: 'ff211c'
       })
-
-
   }
 
   onMapClicked = (props) => {
@@ -219,7 +217,6 @@ export class LocalMap extends Component {
              zoom={13}
              styles={styles}
              mapTypeControl={false}
-
             >
 
       {this.props.locations.map(location =>
@@ -228,8 +225,13 @@ export class LocalMap extends Component {
         key={location.title}
         title={location.title}
         position={location.location}
-        animation={(this.props.google.maps.Animation.DROP) }
-        icon={ this.makeMarkerIcon(this.state.defaultIcon) }
+        animation={( (location.title === this.state.selectedPlace.title) &&
+          this.props.google.maps.Animation.DROP) }
+        icon={ (location.title === this.state.selectedPlace.title) ?
+          ( this.makeMarkerIcon( this.state.defaultIcon) ) :
+          ( this.makeMarkerIcon( this.state.highlightedIcon) )
+
+        }
          />
       )}
 
