@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LocalMap from './LocalMap'
+import LocalFilter from './LocalFilter'
 import './App.css';
 
 
@@ -17,9 +18,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-       <LocalMap
+        
+      <div className="filter">
+        <LocalFilter
          locations={this.state.locations}
+        />
+      </div>
+     <div className="map">
+       <LocalMap
+          locations={this.state.locations}
          />
+        </div>
       </div>
     );
   }

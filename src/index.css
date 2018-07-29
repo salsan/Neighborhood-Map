@@ -2,4 +2,35 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.App {
+  display: flex;
+}
+
+.map {
+  width: 60%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+/* Location List personalization */
+
+.filter {
+  width: 40%;
+}
+
+input {
+  width: 90%;
+}
+
+ul.locations-list  {
+  padding : 0;
+  min-width: 150px;
+}
+
+li.location {
+  list-style-type: none;
 }
