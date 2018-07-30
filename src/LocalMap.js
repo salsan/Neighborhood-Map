@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import MapStyle from './style.json'
+import MapStyles from './style.json'
+
+
 
 export class LocalMap extends Component {
   state = {
-    showingInfoWindow: false,
     activeMarker: {},
     selectedPlace: {},
     defaultIcon : '0089ff',
@@ -42,8 +43,9 @@ export class LocalMap extends Component {
 
 
   render() {
-
+    console.log(this.state.showingInfoWindow)
     return (
+
         <div>
           <Map
              google={this.props.google}
@@ -52,7 +54,7 @@ export class LocalMap extends Component {
              lng: 15.087076
              }}
              zoom={13}
-             styles={MapStyle}
+             styles={MapStyles}
              mapTypeControl={false}
             >
 

@@ -13,7 +13,6 @@ export class LocalFilter extends Component {
     })
   }
 
-
   render(){
     console.log(this.state.query);
     return ( <div className="container">Filter
@@ -33,6 +32,7 @@ export class LocalFilter extends Component {
         .map(location => (
         <li className="location"
           key={location.title}
+          onClick={(event)=>this.props.activeInfoBox()}
          >
          {location.title}
         </li>

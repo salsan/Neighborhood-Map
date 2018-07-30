@@ -10,8 +10,15 @@ class App extends Component {
 
   state = {
           currentLocations : cataniaLocations,
-          selectedLocation: {}
+          selectedLocation: {},
+          showingInfoWindow: false,
   }
+
+activeInfoBox = ( box ) => {
+  this.setState ({
+    showingInfoWindow: true
+  })
+}
 
   render() {
     const { locations } = this.state;
@@ -23,11 +30,15 @@ class App extends Component {
         <LocalFilter
          locations={this.state.currentLocations}
          selectedLocation={this.state.selectedLocation}
+         activeInfoBox={this.activeInfoBox}
+         showingInfoWindow={this.state.showingInfoWindow}
         />
       </div>
      <div className="map">
        <LocalMap
           locations={this.state.currentLocations}
+          showingInfoWindow={this.state.showingInfoWindow}
+          activeInfoBox={this.activeInfoBox}
          />
         </div>
       </div>
