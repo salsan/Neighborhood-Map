@@ -10,28 +10,33 @@ class App extends Component {
 
   state = {
           currentLocations : cataniaLocations,
-          selectedLocation: {},
+          defaultLocations:  cataniaLocations,
           showingInfoWindow: false,
   }
 
-activeInfoBox = ( box ) => {
+activeInfoBox = ( props, marker, e ) => {
   this.setState ({
+    selectedPlace: props,
+    activeMarker: marker,
     showingInfoWindow: true
+  })
+
+}
+
+selectedPlace = ( locations ) => {
+  this.setState ({
+    currentLocations: locations
   })
 }
 
   render() {
-    const { locations } = this.state;
-    console.log( locations);
     return (
       <div className="App">
-
       <div className="filter">
         <LocalFilter
          locations={this.state.currentLocations}
-         selectedLocation={this.state.selectedLocation}
-         activeInfoBox={this.activeInfoBox}
-         showingInfoWindow={this.state.showingInfoWindow}
+         defaultLocations={this.state.defaultLocations}
+         selectedPlace={this.selectedPlace}
         />
       </div>
      <div className="map">

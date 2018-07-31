@@ -19,6 +19,7 @@ export class LocalMap extends Component {
         activeMarker: marker,
         showingInfoWindow: true,
       })
+  this.props.activeInfoBox ( props, marker, e)
   }
 
   onMapClicked = (props) => {
@@ -43,6 +44,8 @@ export class LocalMap extends Component {
 
 
   render() {
+    const { locations } = this.props;
+
     console.log(this.state.showingInfoWindow)
     return (
 
@@ -58,7 +61,7 @@ export class LocalMap extends Component {
              mapTypeControl={false}
             >
 
-      {this.props.locations.map(location =>
+      {locations.map(location =>
         <Marker
         onClick={this.onMarkerClick}
         key={location.title}
