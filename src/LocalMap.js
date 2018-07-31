@@ -19,6 +19,7 @@ export class LocalMap extends Component {
         activeMarker: marker,
         showingInfoWindow: true,
       })
+
   this.props.activeInfoBox ( props, marker, e)
   }
 
@@ -46,9 +47,7 @@ export class LocalMap extends Component {
   render() {
     const { locations } = this.props;
 
-    console.log(this.state.showingInfoWindow)
     return (
-
         <div>
           <Map
              google={this.props.google}

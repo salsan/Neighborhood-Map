@@ -5,16 +5,24 @@ export class LocalFilter extends Component {
 
   state = {
     query: '',
+    lenQuery: 0
   }
 
   updateQuery = (query) => {
     this.setState({
-     query
+     query,
     })
   }
 
+  lengthQuery = () => {
+    this.setState((prevState) => ({
+      lenQuery: prevState.query.length
+    }));
+
+  }
+
   searchQuery = (query) => {
-    if (query){
+    if (query ){
       const matched = new RegExp(EscapeRegExp(query), "i");
       let queryLocations = this.props.locations.filter( location =>
         matched.test(location.title)
@@ -23,8 +31,21 @@ export class LocalFilter extends Component {
     } else {
       this.props.selectedPlace(this.props.defaultLocations)
     }
-
     this.updateQuery(query)
+
+    {/* This is a workaround for backspace press button */}
+
+    if ( this.state.lenQuery > query.length){
+      const matched = new RegExp(EscapeRegExp(query), "i");
+      let queryLocations = this.props.defaultLocations.filter( location =>
+      matched.test(location.title)
+      )
+      this.props.selectedPlace(queryLocations)
+    }
+
+    {/* Store last length value on a new variable*/}
+    this.lengthQuery(query)
+
   }
 
   render(){
@@ -52,8 +73,6 @@ export class LocalFilter extends Component {
   </ul>
   </div>)
   }
-
-
 }
 
 export default LocalFilter
