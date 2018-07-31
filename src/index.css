@@ -8,6 +8,7 @@ body {
 
 .App {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .map {
@@ -33,4 +34,13 @@ ul.locations-list  {
 
 li.location {
   list-style-type: none;
+}
+
+/* For Device under 500px */
+
+@media screen and ( max-width: 500px) {
+  .filter,
+  .map {
+     width: 100%;
+  }
 }

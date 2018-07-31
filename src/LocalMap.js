@@ -53,7 +53,7 @@ export class LocalMap extends Component {
           <Map
              google={this.props.google}
              initialCenter={{
-             lat: 37.502496,
+             lat: 37.512977,
              lng: 15.087076
              }}
              zoom={13}
