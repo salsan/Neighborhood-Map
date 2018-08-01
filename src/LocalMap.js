@@ -36,8 +36,8 @@ export class LocalMap extends Component {
     const { locations } = this.props;
 
     return (
-        <div>
-          <Map
+    <div>
+      <Map
              google={this.props.google}
              initialCenter={{
              lat: 37.512977,
@@ -66,6 +66,7 @@ export class LocalMap extends Component {
 
         <InfoWindow
              marker={this.props.activeMarker}
+             position={this.props.selectedPlace.location}
              visible={this.props.showingInfoWindow}>
                <div>
                  <h1>{this.props.selectedPlace.title}</h1>
