@@ -65,6 +65,7 @@ export class LocalFilter extends Component {
     this.props.locations.map(location => (
         <li className="location"
           key={location.title}
+          onClick={()=>this.props.onMarkerClick(location)}
          >
          {location.title}
         </li>

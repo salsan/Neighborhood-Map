@@ -41,6 +41,8 @@ selectedPlace = ( locations ) => {
          locations={this.state.currentLocations}
          defaultLocations={this.state.defaultLocations}
          selectedPlace={this.selectedPlace}
+         onMarkerClick={this.onMarkerClick}
+         activeMarker={this.state.activeMarker}
         />
       </div>
      <div className="map">
