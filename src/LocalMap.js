@@ -6,22 +6,10 @@ import MapStyles from './style.json'
 
 export class LocalMap extends Component {
   state = {
-    activeMarker: {},
-    selectedPlace: {},
     defaultIcon : '0089ff',
     highlightedIcon : 'ff211c'
   };
 
-  onMarkerClick = (props, marker, e) =>
-  {
-      this.setState({
-        selectedPlace: props,
-        activeMarker: marker,
-        showingInfoWindow: true,
-      })
-
-  this.props.activeInfoBox ( props, marker, e)
-  }
 
   onMapClicked = (props) => {
     if (this.state.showingInfoWindow) {
@@ -60,27 +48,27 @@ export class LocalMap extends Component {
              mapTypeControl={false}
             >
 
-      {locations.map(location =>
+      {
+        locations.map(location =>
         <Marker
-        onClick={this.onMarkerClick}
-        key={location.title}
-        title={location.title}
-        position={location.location}
-        animation={( (location.title === this.state.selectedPlace.title) &&
-          this.props.google.maps.Animation.DROP) }
-        icon={ (location.title === this.state.selectedPlace.title) ?
-          ( this.makeMarkerIcon( this.state.defaultIcon) ) :
-          ( this.makeMarkerIcon( this.state.highlightedIcon) )
-
+          onClick={this.props.onMarkerClick}
+          key={location.title}
+          title={location.title}
+          position={location.location}
+          animation={( (location.title === this.props.selectedPlace.title) &&
+            this.props.google.maps.Animation.DROP) }
+            icon={ (location.title === this.props.selectedPlace.title) ?
+              ( this.makeMarkerIcon( this.state.defaultIcon) ) :
+              ( this.makeMarkerIcon( this.state.highlightedIcon) )
         }
          />
       )}
 
         <InfoWindow
-             marker={this.state.activeMarker}
-             visible={this.state.showingInfoWindow}>
+             marker={this.props.activeMarker}
+             visible={this.props.showingInfoWindow}>
                <div>
-                 <h1>{this.state.selectedPlace.title}</h1>
+                 <h1>{this.props.selectedPlace.title}</h1>
                </div>
          </InfoWindow>
      </Map>

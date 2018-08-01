@@ -12,16 +12,20 @@ class App extends Component {
           currentLocations : cataniaLocations,
           defaultLocations:  cataniaLocations,
           showingInfoWindow: false,
+          activeMarker: {},
+          selectedPlace: {},
   }
 
-activeInfoBox = ( props, marker, e ) => {
-  this.setState ({
-    selectedPlace: props,
-    activeMarker: marker,
-    showingInfoWindow: true
-  })
+  onMarkerClick = (props, marker, e) =>
+  {
+      this.setState({
+        selectedPlace: props,
+        activeMarker: marker,
+        showingInfoWindow: true,
+      })
+  }
 
-}
+
 
 selectedPlace = ( locations ) => {
   this.setState ({
@@ -43,7 +47,10 @@ selectedPlace = ( locations ) => {
        <LocalMap
           locations={this.state.currentLocations}
           showingInfoWindow={this.state.showingInfoWindow}
-          activeInfoBox={this.activeInfoBox}
+          onMarkerClick={this.onMarkerClick}
+          activeMarker={this.state.activeMarker}
+          selectedPlace={this.state.selectedPlace}
+
          />
         </div>
       </div>
