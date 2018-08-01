@@ -7,7 +7,8 @@ import MapStyles from './style.json'
 export class LocalMap extends Component {
   state = {
     defaultIcon : '0089ff',
-    highlightedIcon : 'ff211c'
+    highlightedIcon : 'ff211c',
+    bounds: {}
   };
 
 
@@ -32,8 +33,20 @@ export class LocalMap extends Component {
  }
 
 
+
   render() {
     const { locations } = this.props;
+
+    const style = {
+      width: '100%',
+      height: '100%'
+    }
+
+    /* Center Automatic the Map  */
+    var bounds = new this.props.google.maps.LatLngBounds();
+    this.props.locations.map ( place =>
+     bounds.extend(place.location)
+     )
 
     return (
     <div>
@@ -41,10 +54,11 @@ export class LocalMap extends Component {
              google={this.props.google}
              initialCenter={{
              lat: 37.512977,
-             lng: 15.087076
+             lng: 15.089996
              }}
-             zoom={13}
+             bounds={bounds}
              styles={MapStyles}
+             style={style}
              mapTypeControl={false}
             >
 
@@ -67,7 +81,8 @@ export class LocalMap extends Component {
         <InfoWindow
              marker={this.props.activeMarker}
              position={this.props.selectedPlace.location}
-             visible={this.props.showingInfoWindow}>
+             visible={this.props.showingInfoWindow}
+        >
                <div>
                  <h1>{this.props.selectedPlace.title}</h1>
                </div>
