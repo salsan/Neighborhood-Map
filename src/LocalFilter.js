@@ -33,7 +33,7 @@ export class LocalFilter extends Component {
     }
     this.updateQuery(query)
 
-    {/* This is a workaround for backspace press button */}
+    /* This is a workaround for backspace press button */
 
     if ( this.state.lenQuery > query.length){
       const matched = new RegExp(EscapeRegExp(query), "i");
@@ -43,7 +43,7 @@ export class LocalFilter extends Component {
       this.props.selectedPlace(queryLocations)
     }
 
-    {/* Store last length value on a new variable*/}
+    /* Store last length value on a new variable*/
     this.lengthQuery(query)
 
   }
