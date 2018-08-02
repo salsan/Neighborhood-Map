@@ -11,8 +11,8 @@ body {
 
 .map {
   width: 70%;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  min-width: 345px;
+
 }
 
 /* Location List personalization */
@@ -28,15 +28,17 @@ input {
 ul.locations-list  {
   padding : 0;
   min-width: 150px;
+  width: 100%;
 }
 
 li.location {
   list-style-type: none;
+
 }
 
 /* For Device under 500px */
 
-@media screen and ( max-width: 500px) {
+@media screen and ( max-width: 700px) {
   .filter,
   .map {
      width: 100%;

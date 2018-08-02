@@ -48,13 +48,15 @@ export class LocalMap extends Component {
      bounds.extend(place.location)
      )
 
+     console.log(bounds)
+
     return (
     <div>
       <Map
              google={this.props.google}
              initialCenter={{
              lat: 37.512977,
-             lng: 15.089996
+             lng: 15.078748
              }}
              bounds={bounds}
              styles={MapStyles}
