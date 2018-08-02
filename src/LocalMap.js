@@ -91,5 +91,5 @@ export class LocalMap extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: ('AIzaSyAOAUHlhd3xdvIEqaAabY3GUYuhgRWavzQA')
+  apiKey: ('AIzaSyAOAUHlhd3xdvIEqaAabY3GUYuhgRWavzQ')
 })(LocalMap)
