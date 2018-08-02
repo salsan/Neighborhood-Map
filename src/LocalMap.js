@@ -11,7 +11,7 @@ export class LocalMap extends Component {
     bounds: {},
   };
 
-
+  /* this function return color  for marker icon */
   makeMarkerIcon = (markerColor) => {
    var markerImage = new this.props.google.maps.MarkerImage(
      'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
