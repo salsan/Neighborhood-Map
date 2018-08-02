@@ -51,7 +51,7 @@ export class LocalFilter extends Component {
   render(){
     return ( <div className="container">
     <div className="search">
-      <label for="search">
+      <label htmlFor="search">
         Search
       <input
         role="search"
@@ -70,7 +70,7 @@ export class LocalFilter extends Component {
           key={location.title}
           onClick={()=>this.props.onMarkerClick(location)}
          >
-         <a href="#">{location.title}</a>
+         <a>{location.title}</a>
         </li>
       ) )
     }

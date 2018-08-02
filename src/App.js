@@ -58,7 +58,7 @@ selectedPlace = ( locations ) => {
           onMarkerClick={this.onMarkerClick}
           activeMarker={this.state.activeMarker}
           selectedPlace={this.state.selectedPlace}
-
+          defaultLocations={this.state.defaultLocations}
          />
         </div>
       </div>

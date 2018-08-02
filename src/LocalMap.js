@@ -8,7 +8,7 @@ export class LocalMap extends Component {
   state = {
     defaultIcon : '0089ff',
     highlightedIcon : 'ff211c',
-    bounds: {}
+    bounds: {},
   };
 
 
@@ -37,13 +37,17 @@ export class LocalMap extends Component {
   render() {
     const { locations } = this.props;
 
+    const description = this.props.defaultLocations.filter( place =>
+    this.props.selectedPlace.title === place.title ).map( place => place.description)
+
+    console.log  ( description );
+
     /* Center Automatic the Map  */
     var bounds = new this.props.google.maps.LatLngBounds();
     this.props.locations.map ( place =>
      bounds.extend(place.location)
      )
 
-     console.log(bounds)
 
     return (
     <div>
@@ -79,8 +83,9 @@ export class LocalMap extends Component {
              position={this.props.selectedPlace.location}
              visible={this.props.showingInfoWindow}
         >
-               <div>
-                 <h1>{this.props.selectedPlace.title}</h1>
+               <div className="infowwindow-dialog">
+                 <h1 className="infowwindow-title">{this.props.selectedPlace.title}</h1>
+                 <p className="infowwindow-description">{description}</p>
                </div>
          </InfoWindow>
      </Map>

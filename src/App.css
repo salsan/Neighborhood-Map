@@ -73,6 +73,15 @@ li.location {
 
 }
 
+/* InfoWindow Dialog */
+.infowwindow {
+  max-width: 100%;
+}
+
+.infowwindow-dialog {
+  width: 300px;
+}
+
 /* For Device under 500px */
 
 @media screen and ( max-width: 700px) {
