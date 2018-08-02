@@ -40,8 +40,6 @@ export class LocalMap extends Component {
     const description = this.props.defaultLocations.filter( place =>
     this.props.selectedPlace.title === place.title ).map( place => place.description)
 
-    console.log  ( description );
-
     /* Center Automatic the Map  */
     var bounds = new this.props.google.maps.LatLngBounds();
     this.props.locations.map ( place =>
