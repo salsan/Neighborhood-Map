@@ -12,15 +12,6 @@ export class LocalMap extends Component {
   };
 
 
-  onMapClicked = (props) => {
-    if (this.state.showingInfoWindow) {
-      this.setState({
-        showingInfoWindow: false,
-        activeMarker: null
-      })
-    }
-  };
-
   makeMarkerIcon = (markerColor) => {
    var markerImage = new this.props.google.maps.MarkerImage(
      'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
@@ -37,6 +28,7 @@ export class LocalMap extends Component {
   render() {
     const { locations } = this.props;
 
+    /* if current place is without description add it */
     const description = this.props.defaultLocations.filter( place =>
     this.props.selectedPlace.title === place.title ).map( place => place.description)
 
