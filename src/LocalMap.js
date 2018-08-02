@@ -37,11 +37,6 @@ export class LocalMap extends Component {
   render() {
     const { locations } = this.props;
 
-    const style = {
-      width: '100%',
-      height: '100%'
-    }
-
     /* Center Automatic the Map  */
     var bounds = new this.props.google.maps.LatLngBounds();
     this.props.locations.map ( place =>
@@ -60,7 +55,6 @@ export class LocalMap extends Component {
              }}
              bounds={bounds}
              styles={MapStyles}
-             style={style}
              mapTypeControl={false}
             >
 
@@ -97,5 +91,5 @@ export class LocalMap extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: ('AIzaSyAOAUHlhd3xdvIEqaAabY3GUYuhgRWavzQ')
+  apiKey: ('AIzaSyAOAUHlhd3xdvIEqaAabY3GUYuhgRWavzQA')
 })(LocalMap)

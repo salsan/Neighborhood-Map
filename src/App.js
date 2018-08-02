@@ -5,6 +5,12 @@ import cataniaLocations from './Catania.json'
 import './App.css';
 
 
+window.gm_authFailure = (error) => {
+  const mapWarning = document.querySelector('.map');
+  mapWarning.innerHTML = `<div class='warning-dialog'><h2 class='warning-title'>Warning</h2><p class='warning-message'>Something failed, more info in console<p></div>`;
+
+}
+
 
 class App extends Component {
 
