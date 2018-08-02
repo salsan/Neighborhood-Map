@@ -49,15 +49,18 @@ export class LocalFilter extends Component {
   }
 
   render(){
-    return ( <div className="container">Filter
+    return ( <div className="container">
     <div className="search">
+      <label for="search">
+        Search
       <input
         role="search"
-        type="text"
+        type="search"
         placeholder="filter list locations"
         value = {this.state.query}
         onChange={(event)=>this.searchQuery(event.target.value)}
       />
+    </label>
     </div>
     <ul className="locations-list">
     {
@@ -67,7 +70,7 @@ export class LocalFilter extends Component {
           key={location.title}
           onClick={()=>this.props.onMarkerClick(location)}
          >
-         {location.title}
+         <a href="#">{location.title}</a>
         </li>
       ) )
     }

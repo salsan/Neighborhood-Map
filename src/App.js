@@ -41,7 +41,7 @@ selectedPlace = ( locations ) => {
 
   render() {
     return (
-      <div className="App">
+      <div role='main' className="App">
       <div className="filter">
         <LocalFilter
          locations={this.state.currentLocations}
