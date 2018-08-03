@@ -23,14 +23,46 @@ export class LocalMap extends Component {
    return markerImage;
  }
 
+ getThumbnail = (query, id ) => {
+   const api = 'https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&titles='
+   const pithumbsize = 200;
+   const format = 'json'
+   let url = api + encodeURIComponent(query) + "&pithumbsize=" + pithumbsize + '&format=' + format + '&origin=*&utf8=&format=json'
+
+   if ( id !== undefined){
+     fetch(url, {
+       method: "GET",
+       headers: {
+         "Content-Type": "application/json; charset=utf-8"
+       }
+     })
+     .then(response => response.json())
+     .then(data =>  {
+          console.log(data.query.pages[id].thumbnail.source )
+      }).catch(error => console.error(error))
+  }
+
+ }
+
 
 
   render() {
     const { locations } = this.props;
+    var description;
+    var placeID;
 
-    /* if current place is without description add it */
-    const description = this.props.defaultLocations.filter( place =>
-    this.props.selectedPlace.title === place.title ).map( place => place.description)
+
+    /* if current place is without query information add it */
+     this.props.defaultLocations.filter( place =>
+      this.props.selectedPlace.title === place.title ).forEach( place =>
+        {
+          description = place.query;
+          placeID = place.id
+        }
+      )
+
+    console.log( description, placeID)
+    this.getThumbnail( description,placeID)
 
     /* Center Automatic the Map  */
     var bounds = new this.props.google.maps.LatLngBounds();
@@ -76,6 +108,7 @@ export class LocalMap extends Component {
                <div className="infowwindow-dialog">
                  <h1 className="infowwindow-title">{this.props.selectedPlace.title}</h1>
                  <p className="infowwindow-description">{description}</p>
+                 <div className="place-image">{}</div>
                </div>
          </InfoWindow>
      </Map>

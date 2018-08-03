@@ -1,27 +1,32 @@
 [
  {
+   "id" : "47554843",
    "title": "Piazza Duomo",
    "location": {"lat": 37.502496, "lng": 15.087076},
-   "description": "Piazza del Duomo is a city square in Catania, Italy."
+   "query": "Piazza del Duomo, Catania"
  },
  {
+   "id" : "3265070",
    "title": "Stadio Angelo Massimino",
    "location": {"lat": 37.515807, "lng": 15.071064},
-   "description": "Stadio Angelo Massimino (previously known as Stadio Cibali) is a multi-use stadium in Catania, Italy."
+   "query": "Stadio Angelo Massimino"
  },
  {
+   "id" : "4361240",
    "title": "Teatro Massimo Bellini",
    "location": {"lat": 37.504207, "lng": 15.090006},
-   "description": "The Teatro Massimo Bellini is an opera house in Catania, Sicily, southern Italy."
+   "query": "Teatro Massimo Bellini"
  },
  {
+   "id" : "47562866",
    "title": "Giardino Bellini",
    "location": {"lat": 37.510677, "lng": 15.0849635},
-   "description": "The Giardino Bellini (also known as Villa Bellini; English translation:\n 'Bellini Garden') is the oldest urban park of Catania."
+   "query": "Giardino Bellini"
  },
  {
+    "id" : "285541",
    "title": "ASD Scacchi Catania",
    "location": {"lat": 37.523458, "lng": 15.067489},
-   "description": "Chess clubs often provide for both informal and tournament games and sometimes offer league play."
+   "query": "Chess club"
  }
 ]
