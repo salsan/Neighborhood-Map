@@ -75,11 +75,11 @@ li.location {
 
 /* InfoWindow Dialog */
 .infowwindow {
-  max-width: 100%;
+  max-width: 50%;
 }
 
 .infowwindow-dialog {
-  width: 300px;
+  width: 200px;
 }
 
 /* For Device under 500px */

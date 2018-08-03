@@ -24,6 +24,15 @@ export class LocalMap extends Component {
    return markerImage;
  }
 
+ setThumbnail = (query) => {
+   if ( query !== this.state.placeImgUrl) {
+    this.setState({
+        placeImgUrl: query
+    })
+  }
+
+ }
+
  getThumbnail = (query, id ) => {
    const api = 'https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&titles='
    const pithumbsize = 200;
@@ -39,11 +48,9 @@ export class LocalMap extends Component {
      })
      .then(response => response.json())
      .then(data =>  {
-          this.setState({
-            placeImgUrl: data.query.pages[id].thumbnail.source
-          })
+            this.setThumbnail(data.query.pages[id].thumbnail.source)
       }).catch(error => console.error(error))
-  }
+    }
 
  }
 
@@ -62,11 +69,10 @@ export class LocalMap extends Component {
         {
           description = place.query;
           placeID = place.id
+          placeImgAlt = place.title
+          this.getThumbnail( description, placeID)
         }
       )
-
-    console.log( description, placeID)
-
 
     /* Center Automatic the Map  */
     var bounds = new this.props.google.maps.LatLngBounds();
@@ -111,9 +117,9 @@ export class LocalMap extends Component {
         >
                <div className="infowwindow-dialog">
                  <h1 className="infowwindow-title">{this.props.selectedPlace.title}</h1>
-                 <div className="place-image">
+
                    <img alt={placeImgAlt}  src={this.state.placeImgUrl}/>
-                 </div>
+
                </div>
          </InfoWindow>
      </Map>
