@@ -72,6 +72,19 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+## Dependencies
+
+- [create-react-app](https://www.npmjs.com/package/create-react-app)
+- [google-maps-react](https://www.npmjs.com/package/google-map-react)
+- [escape-string-regexp](https://www.npmjs.com/package/escape-string-regexp)
+
+## API
+
+This is a list of API required for run this application:
+
+- [Google Maps API](https://developers.google.com/maps/documentation/)
+- [WikiMedia API](https://www.mediawiki.org/wiki/API:Main_page)
+
 ## Author
 Original made by **Salvatore Santagati** for a **Udacity project** (FEND Nanodegree).
 
