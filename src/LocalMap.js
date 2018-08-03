@@ -6,6 +6,7 @@ import MapStyles from './style.json'
 
 export class LocalMap extends Component {
   state = {
+    placeImgUrl :  './img/image-not-found.png',
     defaultIcon : '0089ff',
     highlightedIcon : 'ff211c',
     bounds: {},
@@ -107,8 +108,9 @@ export class LocalMap extends Component {
         >
                <div className="infowwindow-dialog">
                  <h1 className="infowwindow-title">{this.props.selectedPlace.title}</h1>
-                 <p className="infowwindow-description">{description}</p>
-                 <div className="place-image">{}</div>
+                 <div className="place-image">
+                   <img alt="Image not found"  src={this.state.placeImgUrl}/>
+                 </div>
                </div>
          </InfoWindow>
      </Map>
