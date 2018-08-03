@@ -7,9 +7,6 @@ import MapStyles from './style.json'
 export class LocalMap extends Component {
   state = {
     placeImgUrl :  './img/loading.gif',
-    defaultIcon : '0089ff',
-    highlightedIcon : 'ff211c',
-    bounds: {},
   };
 
   /* this function return color  for marker icon */
@@ -30,7 +27,6 @@ export class LocalMap extends Component {
         placeImgUrl: query
     })
   }
-
  }
 
  getThumbnail = (query, id ) => {
@@ -58,9 +54,15 @@ export class LocalMap extends Component {
 
   render() {
     const { locations } = this.props;
+
+    /* variable for wikipedia api */
     var description;
     var placeID;
     let placeImgAlt = 'Loading';
+
+    /* variable for icon color marker */
+    let defaultIcon = '0089ff';
+    let highlightedIcon = 'ff211c';
 
 
     /* if current place is without query information add it */
@@ -104,8 +106,8 @@ export class LocalMap extends Component {
           animation={( (location.title === this.props.selectedPlace.title) &&
             this.props.google.maps.Animation.DROP) }
             icon={ (location.title === this.props.selectedPlace.title) ?
-              ( this.makeMarkerIcon( this.state.defaultIcon) ) :
-              ( this.makeMarkerIcon( this.state.highlightedIcon) )
+              ( this.makeMarkerIcon( defaultIcon) ) :
+              ( this.makeMarkerIcon(highlightedIcon) )
         }
          />
       )}
