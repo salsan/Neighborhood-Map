@@ -6,7 +6,7 @@ import MapStyles from './style.json'
 
 export class LocalMap extends Component {
   state = {
-    placeImgUrl :  './img/image-not-found.png',
+    placeImgUrl :  './img/loading.gif',
     defaultIcon : '0089ff',
     highlightedIcon : 'ff211c',
     bounds: {},
@@ -39,7 +39,9 @@ export class LocalMap extends Component {
      })
      .then(response => response.json())
      .then(data =>  {
-          console.log(data.query.pages[id].thumbnail.source )
+          this.setState({
+            placeImgUrl: data.query.pages[id].thumbnail.source
+          })
       }).catch(error => console.error(error))
   }
 
@@ -51,6 +53,7 @@ export class LocalMap extends Component {
     const { locations } = this.props;
     var description;
     var placeID;
+    let placeImgAlt = 'Loading';
 
 
     /* if current place is without query information add it */
@@ -63,7 +66,7 @@ export class LocalMap extends Component {
       )
 
     console.log( description, placeID)
-    this.getThumbnail( description,placeID)
+
 
     /* Center Automatic the Map  */
     var bounds = new this.props.google.maps.LatLngBounds();
@@ -109,7 +112,7 @@ export class LocalMap extends Component {
                <div className="infowwindow-dialog">
                  <h1 className="infowwindow-title">{this.props.selectedPlace.title}</h1>
                  <div className="place-image">
-                   <img alt="Image not found"  src={this.state.placeImgUrl}/>
+                   <img alt={placeImgAlt}  src={this.state.placeImgUrl}/>
                  </div>
                </div>
          </InfoWindow>
