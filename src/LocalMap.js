@@ -119,9 +119,10 @@ export class LocalMap extends Component {
         >
                <div className="infowwindow-dialog">
                  <h1 className="infowwindow-title">{this.props.selectedPlace.title}</h1>
-
+                 <div className="infowwindow-image">
                    <img alt={placeImgAlt}  src={this.state.placeImgUrl}/>
-
+                   <p className="credit">Photo Credit <a href="https://en.wikipedia.org/wiki/Main_Page">Wikipedia</a></p>
+                 </div>
                </div>
          </InfoWindow>
      </Map>
