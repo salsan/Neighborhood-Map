@@ -1,10 +1,10 @@
-# [Neighborhood Map](https://github.com/salsan/neighborhood-map).
+# [Neighborhood Map](https://github.com/salsan/neighborhood-map) ( Catania )
 
 This project is part of the [*Front-End Web Developer Nanodegree Program*](https://eu.udacity.com/course/front-end-web-developer-nanodegree--nd001)
 
 ## Features
 
-This is a simple integration of [Google Maps Api](https://cloud.google.com/maps-platform/?hl=it) to [React.js](https://reactjs.org/)
+This is a simple integration of [Google Maps Api](https://cloud.google.com/maps-platform/?hl=it) and [MediaWiki Api](https://www.mediawiki.org/wiki/API:Main_page) to [React.js](https://reactjs.org/)
 
 ## Folder Structure
 
@@ -61,7 +61,6 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
-See the section about [deployment](#deployment) for more information.
 
 ### `npm run eject`
 
@@ -72,3 +71,12 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Author
+Original made by **Salvatore Santagati** for a **Udacity project** (FEND Nanodegree).
+
+## Contributing
+All suggestions and tips will be more than appreciated but, as general rule, no pull requested are normally accepted.
+
+## LICENSE
+[MIT License](https://github.com/salsan/neighborhood-map/blob/master/LICENSE) © Salvatore Santagati
